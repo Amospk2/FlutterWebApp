@@ -52,11 +52,10 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
         backgroundColor: const Color.fromARGB(106, 28, 0, 105),
         appBar: ResponsiveWidget.isSmallScreen(context)
             ? AppBar(
-                // for smaller screen sizes
-                backgroundColor: const Color.fromARGB(220, 0, 199, 43),
+                centerTitle: true,
                 elevation: 0,
                 title: Text(
-                  'EXPLORE',
+                  'Flutter SImple Register',
                   style: TextStyle(
                     color: Colors.blueGrey.shade100,
                     fontSize: 20,
@@ -84,20 +83,38 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   ),
                 ),
               ),
-        body: Row(
-          children: [
-            CardForm(
-                animationControllerOne: animationControllerOne,
-                screenSize: screenSize
-            ),
-            CardInfo(
-                animationControllerTwo: animationControllerTwo,
-                screenSize: screenSize,
-                pageController: _pageController,
-                animationControllerOne: animationControllerOne
-            ),
-          ],
-        ) // This trailing comma makes auto-formatting nicer for build methods.
+        body: ResponsiveWidget.isSmallScreen(context)
+            ? SingleChildScrollView(
+                child: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    CardForm(
+                        isSmallScreen: ResponsiveWidget.isSmallScreen(context),
+                        animationControllerOne: animationControllerOne,
+                        screenSize: screenSize),
+                    CardInfo(
+                        isSmallScreen: ResponsiveWidget.isSmallScreen(context),
+                        animationControllerTwo: animationControllerTwo,
+                        screenSize: screenSize,
+                        pageController: _pageController,
+                        animationControllerOne: animationControllerOne),
+                  ],
+                ),
+              )
+            : Row(
+                children: [
+                  CardForm(
+                      isSmallScreen: ResponsiveWidget.isSmallScreen(context),
+                      animationControllerOne: animationControllerOne,
+                      screenSize: screenSize),
+                  CardInfo(
+                      isSmallScreen: ResponsiveWidget.isSmallScreen(context),
+                      animationControllerTwo: animationControllerTwo,
+                      screenSize: screenSize,
+                      pageController: _pageController,
+                      animationControllerOne: animationControllerOne),
+                ],
+              ) // This trailing comma makes auto-formatting nicer for build methods.
         );
   }
 }

@@ -7,11 +7,12 @@ class CardForm extends StatelessWidget {
   const CardForm({
     super.key,
     required this.animationControllerOne,
-    required this.screenSize,
+    required this.screenSize, required this.isSmallScreen,
   });
 
   final AnimationController animationControllerOne;
   final Size screenSize;
+  final bool isSmallScreen;
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +25,9 @@ class CardForm extends StatelessWidget {
             : Offset.fromDirection(0.0, -0.1),
         child: Align(
           child: SizedBox(
-            width: screenSize.width / 2,
+            width: isSmallScreen
+                ? screenSize.width
+                : screenSize.width / 2,
             child: Card(
               margin: const EdgeInsets.all(15),
               color: const Color.fromARGB(106, 28, 0, 105),
@@ -47,7 +50,9 @@ class CardForm extends StatelessWidget {
                         height: 30,
                       ),
                       SizedBox(
-                        height: screenSize.width / 30,
+                        height: isSmallScreen
+                            ? screenSize.height / 20
+                            : screenSize.height / 15,
                         width: screenSize.height / 8,
                         child: CustomElevatedButton(callback: () {}),
                       )
@@ -60,4 +65,3 @@ class CardForm extends StatelessWidget {
     );
   }
 }
-
