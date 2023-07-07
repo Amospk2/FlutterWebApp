@@ -1,16 +1,21 @@
-# webtest
+# Flutter Web App
 
-A new Flutter project.
+Projeto em flutte que trás uma tela adaptativa para o flutter na web.
 
-## Getting Started
+## Como rodar
 
-This project is a starting point for a Flutter application.
+1 - Certifique-se de estar rodando numa versão igual ou superior a 3 do flutter
 
-A few resources to get you started if this is your first Flutter project:
+2 - No terminal rode: 
+```bash 
+flutter pub get 
+```
+3 - Para rodar na web use:
+```bash
+flutter run --device-id Chrome
+# Mude o device-id se necessario.
+```
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Visualize o projeto:
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![home](/assets/simplescreenrecorder-2023-07-07_14.39.57.gif)
